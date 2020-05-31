@@ -2,7 +2,8 @@ const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
-const icon = document.querySelector('.icon img')
+const icon = document.querySelector('.icon img');
+const forecast = new Forecast(); 
 
 //showing the city and weather details on browser
 const updateUI = (data) => {
@@ -41,19 +42,6 @@ const updateUI = (data) => {
 
 };
 
-
-//getting the city and  weather details from forecast.js
-const updateCity = async (city) => {
-    
-    const cityDets = await getCity(city);
-    const Weather = await getWeather(cityDets.Key);
-
-    return {
-        cityDets: cityDets,
-        Weather: Weather
-    };
-
-} ;
 
 //getting the new city names which the user enters
 cityForm.addEventListener('submit', e =>{
